@@ -23,7 +23,7 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: ${{ matrix.arch }}
-      - name: Compile and run some C code (amd64)
+      - name: Compile QQMsg
         shell: cmd
         run: |
           cl.exe QQMsg.cpp

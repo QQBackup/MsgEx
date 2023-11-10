@@ -835,6 +835,10 @@ int main(int argc, char* argv[])
 	fprintf(fpout, "\n");
 	fprintf(fpout, "QUQU<quhongjun@msn.com>\n");
 	fprintf(fpout, "2006/12/28\n");
+	fprintf(fpout, "\n");
+	fprintf(fpout, "项目维护地址：https://github.com/QQBackup/MsgEx\n");
+	fprintf(fpout, "LY<ly-niko@qq.com>\n");
+	fprintf(fpout, "2023/11/10\n");
 	fprintf(fpout, "==================================================\n");
 	fprintf(fpout, "\n\n");
 	

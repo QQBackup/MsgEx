@@ -63,7 +63,7 @@ int MsgEx_ShowMsg(char *pOut, int retLen)
 	char *pName, *pMsg, *pOffset;;
 	int msgType=0, nameLen=0, msgLen=0;
 	char *strTime;
-	long t;
+	time_t t;
 	int offset=0;
 
 

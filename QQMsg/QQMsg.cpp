@@ -222,49 +222,49 @@ int MsgEx_SetMsgType(char *name)
 	if(strcmp(name, "C2CMsg") == 0){
 		iMsgType = QQEX_MSGTYPE_C2CMSG;
 		fprintf(fpout, "\n\n==================================================\n");
-		fprintf(fpout, "ÏûÏ¢ÀàĞÍ£ºÓÃ»§ÏûÏ¢\n"); 
+		fprintf(fpout, "æ¶ˆæ¯ç±»å‹ï¼šç”¨æˆ·æ¶ˆæ¯\n"); 
 		fprintf(fpout, "==================================================\n\n");
 		return 0;
 	}
 	if(strcmp(name, "SysMsg") == 0){
 		iMsgType = QQEX_MSGTYPE_SYSMSG;
 		fprintf(fpout, "\n\n==================================================\n");
-		fprintf(fpout, "ÏûÏ¢ÀàĞÍ£ºÏµÍ³ÏûÏ¢\n"); 
+		fprintf(fpout, "æ¶ˆæ¯ç±»å‹ï¼šç³»ç»Ÿæ¶ˆæ¯\n"); 
 		fprintf(fpout, "==================================================\n\n");
 		return 0;
 	}
 	if(strcmp(name, "IMInfo") == 0){
 		iMsgType = QQEX_MSGTYPE_IMINFO;
 		fprintf(fpout, "\n\n==================================================\n");
-		fprintf(fpout, "ÏûÏ¢ÀàĞÍ£ºIMInfo\n"); 
+		fprintf(fpout, "æ¶ˆæ¯ç±»å‹ï¼šIMInfo\n"); 
 		fprintf(fpout, "==================================================\n\n");
 		return 0;
 	}
 	if(strcmp(name, "DiscMsg") == 0){
 		iMsgType = QQEX_MSGTYPE_DISCMSG;
 		fprintf(fpout, "\n\n==================================================\n");
-		fprintf(fpout, "ÏûÏ¢ÀàĞÍ£ºDiscMsg\n"); 
+		fprintf(fpout, "æ¶ˆæ¯ç±»å‹ï¼šDiscMsg\n"); 
 		fprintf(fpout, "==================================================\n\n");
 		return 0;
 	}
 	if(strcmp(name, "GroupMsg") == 0){
 		iMsgType = QQEX_MSGTYPE_GROUPMSG;
 		fprintf(fpout, "\n\n==================================================\n");
-		fprintf(fpout, "ÏûÏ¢ÀàĞÍ£ºÈº×éÏûÏ¢\n"); 
+		fprintf(fpout, "æ¶ˆæ¯ç±»å‹ï¼šç¾¤ç»„æ¶ˆæ¯\n"); 
 		fprintf(fpout, "==================================================\n\n");
 		return 0;
 	}
 	if(strcmp(name, "MobileMsg") == 0){
 		iMsgType = QQEX_MSGTYPE_MOBILEMSG;
 		fprintf(fpout, "\n\n==================================================\n");
-		fprintf(fpout, "ÏûÏ¢ÀàĞÍ£ºÒÆ¶¯ÏûÏ¢\n"); 
+		fprintf(fpout, "æ¶ˆæ¯ç±»å‹ï¼šç§»åŠ¨æ¶ˆæ¯\n"); 
 		fprintf(fpout, "==================================================\n\n");
 		return 0;
 	}
 	if(strcmp(name, "TempSessionMsg") == 0){
 		iMsgType = QQEX_MSGTYPE_TEMPSESSIONMSG;
 		fprintf(fpout, "\n\n==================================================\n");
-		fprintf(fpout, "ÏûÏ¢ÀàĞÍ£ºÁÙÊ±»á»°\n"); 
+		fprintf(fpout, "æ¶ˆæ¯ç±»å‹ï¼šä¸´æ—¶ä¼šè¯\n"); 
 		fprintf(fpout, "==================================================\n\n");
 		return 0;
 	}
@@ -289,7 +289,7 @@ int MsgEx_DumpTnodeMsg(TNode *T)
 		return -1;
 
 	fprintf(fpout, "--------------------------------------------------\n");
-	fprintf(fpout, "ÏûÏ¢¶ÔÏó£º%s\n", T->name);
+	fprintf(fpout, "æ¶ˆæ¯å¯¹è±¡ï¼š%s\n", T->name);
 	fprintf(fpout, "--------------------------------------------------\n");
 	MsgEx_DecodeMsg(tData->data, tIndex->data, tData->len, tIndex->len);
 	return 0;
@@ -371,11 +371,11 @@ char * MsgEx_FindMatrixDB(char *pMatrix, int Len, char *name, int *retLen)
 int MsgEx_DecodeMatrixDB(char *pIn, int Len)
 {
 /*
-Èë¿Ú£º
+å…¥å£ï¼š
 eax: pMatrixDB
 edx: Len
 
-±¾µØ±äÁ¿£º
+æœ¬åœ°å˜é‡ï¼š
 [ebp-4]: char *pIn
 [ebp-8]: int *pLen
 [ebp-C]: ret
@@ -602,22 +602,22 @@ int MsgEx_OpenStorageFile(char *fname)
 	LPCTSTR lpFileName = _T( fname );
 	IStorage *pStg = NULL;
 	USES_CONVERSION;
-	LPCOLESTR lpwFileName = T2COLE( lpFileName );	// ×ª»»TÀàĞÍÎª¿í×Ö·û
+	LPCOLESTR lpwFileName = T2COLE( lpFileName );	// è½¬æ¢Tç±»å‹ä¸ºå®½å­—ç¬¦
 	HRESULT hr;
 
-	hr = StgIsStorageFile( lpwFileName );	// ÊÇ¸´ºÏÎÄ¼şÂğ£¿
+	hr = StgIsStorageFile( lpwFileName );	// æ˜¯å¤åˆæ–‡ä»¶å—ï¼Ÿ
 	if( FAILED(hr) ){
 		printf("Invalid QQ message file: %s\n", fname);
 		return -1;
 	}
 
-	hr = StgOpenStorage(			// ´ò¿ª¸´ºÏÎÄ¼ş
-		lpwFileName,			// ÎÄ¼şÃû³Æ
+	hr = StgOpenStorage(			// æ‰“å¼€å¤åˆæ–‡ä»¶
+		lpwFileName,			// æ–‡ä»¶åç§°
 		NULL,
 		STGM_READ | STGM_SHARE_DENY_WRITE,
 		0,
 		0,
-		&pStg);				// µÃµ½¸ù´æ´¢½Ó¿ÚÖ¸Õë
+		&pStg);				// å¾—åˆ°æ ¹å­˜å‚¨æ¥å£æŒ‡é’ˆ
 
 	if( FAILED(hr) ){
 		printf("Failed to open file %s, errno: 0x%x\n", fname, hr);
@@ -826,12 +826,12 @@ int main(int argc, char* argv[])
 		printf("Can't open file for writing\n");
 		fpout = stdout;
 	}
-	printf("´¦ÀíÖĞ£¬ÇëÉÔºò...\n");
+	printf("å¤„ç†ä¸­ï¼Œè¯·ç¨å€™...\n");
 	fprintf(fpout, "\n");
 	fprintf(fpout, "==================================================\n");
-	fprintf(fpout, "±¾ÎÄ¼şÓÉQQMsgÉú³É\n");
-	fprintf(fpout, "ÓÑÇéÌáĞÑ£º²é¿´±ğÈËµÄÁÄÌì¼ÇÂ¼ÊôÓÚ²»µÀµÂĞĞÎª£¡\n");
-	fprintf(fpout, "±¾ÈË²»¶Ô´ËÈí¼ş²úÉúµÄÈÎºÎºó¹û¸ºÔğ£¡\n");
+	fprintf(fpout, "æœ¬æ–‡ä»¶ç”±QQMsgç”Ÿæˆ\n");
+	fprintf(fpout, "å‹æƒ…æé†’ï¼šæŸ¥çœ‹åˆ«äººçš„èŠå¤©è®°å½•å±äºä¸é“å¾·è¡Œä¸ºï¼\n");
+	fprintf(fpout, "æœ¬äººä¸å¯¹æ­¤è½¯ä»¶äº§ç”Ÿçš„ä»»ä½•åæœè´Ÿè´£ï¼\n");
 	fprintf(fpout, "\n");
 	fprintf(fpout, "QUQU<quhongjun@msn.com>\n");
 	fprintf(fpout, "2006/12/28\n");
@@ -839,12 +839,12 @@ int main(int argc, char* argv[])
 	fprintf(fpout, "\n\n");
 	
 	t = time(0);
-	fprintf(fpout, "ÓÃ»§£º%s\n\n", pUid); 
-	fprintf(fpout, "Éú³ÉÊ±¼ä£º%s\n", strtime(&t));
+	fprintf(fpout, "ç”¨æˆ·ï¼š%s\n\n", pUid); 
+	fprintf(fpout, "ç”Ÿæˆæ—¶é—´ï¼š%s\n", strtime(&t));
 
 	MsgEx_DumpMsg(&Tree);
 
-	printf("ÁÄÌì¼ÇÂ¼ÒÑ±£´æÖÁ: %s\n", fname);
+	printf("èŠå¤©è®°å½•å·²ä¿å­˜è‡³: %s\n", fname);
 	fclose(fpout);
 	return 0;
 }

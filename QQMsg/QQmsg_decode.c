@@ -55,8 +55,8 @@ int blowfish_decrypt(char *pIn, char *key, char *pOut)
 int QQMSG_decode(char *pIn, int len, char *key, char *pOut, int *total_len)
 {
 	int n;
-	char *pEdi;	//ԭʼָ�룬ָ��ǰ8���ֽ�
-	char *pLocal;	//ǰ��ָ�룬ָ���8���ֽ�
+	char *pEdi;	//原始指针，指向前8个字节
+	char *pLocal;	//前驱指针，指向后8个字节
 	int BLOCK_LEN=8;
 	int count=0;
 	int offset = 0;

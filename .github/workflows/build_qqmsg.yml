@@ -1,0 +1,34 @@
+name: Build QQMsg
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    # Run a job for each of the specified target architectures:
+    strategy:
+      matrix:
+        arch:
+          - amd64
+          - amd64_x86
+          - amd64_arm64
+    name: default
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.arch }}
+      - name: Compile and run some C code (amd64)
+        shell: cmd
+        run: |
+          cl.exe QQMsg.cpp
+          dir
+        working-directory: QQMsg
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: QQMsg
+          path: QQMsg

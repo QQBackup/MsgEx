@@ -5,7 +5,8 @@ on:
     branches:
       - master
     paths:
-    - 'QQMsg/**'
+      - "QQMsg/**"
+      - ".github/workflows/build_qqmsg.yml"
 
 jobs:
   test:
@@ -26,11 +27,11 @@ jobs:
       - name: Compile QQMsg
         shell: cmd
         run: |
-          cl.exe QQMsg.cpp
+          cl.exe QQMsg.cpp tree.c md5.c QQmsg_decode.c BlowFish.c /link /out:QQMsg.exe
           dir
         working-directory: QQMsg
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: QQMsg
-          path: QQMsg
+          path: QQMsg/*.exe

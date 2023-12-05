@@ -9,15 +9,14 @@ on:
       - ".github/workflows/build_qqmsg.yml"
 
 jobs:
-  test:
-    # Run a job for each of the specified target architectures:
+  build:
     strategy:
       matrix:
         arch:
           - amd64
           - amd64_x86
           - amd64_arm64
-    name: default
+    name: build
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,3 +34,27 @@ jobs:
         with:
           name: QQMsg_${{ matrix.arch }}
           path: QQMsg/*.exe
+
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+    
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: artifacts
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          name: latest
+          draft: false
+          prerelease: false
+          fail_on_unmatched_files: true
+          files: 'artifacts/*'

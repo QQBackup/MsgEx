@@ -32,7 +32,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: QQMsg_${{ matrix.arch }}
-          path: QQMsg/*.exe
+          path: QQMsg/QQMsg.exe
+          
 
   release:
     needs: build
@@ -56,4 +57,4 @@ jobs:
           draft: false
           prerelease: false
           fail_on_unmatched_files: true
-          files: 'artifacts/*'
+          files: 'artifacts/*/*.exe'

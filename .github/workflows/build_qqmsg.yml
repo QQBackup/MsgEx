@@ -16,7 +16,6 @@ jobs:
           - amd64
           - amd64_x86
           - amd64_arm64
-    name: build
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,7 +35,7 @@ jobs:
           path: QQMsg/*.exe
 
   release:
-    name: release
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write

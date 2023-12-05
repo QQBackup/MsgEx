@@ -25,14 +25,14 @@ jobs:
       - name: Compile QQMsg
         shell: cmd
         run: |
-          cl.exe QQMsg.cpp tree.c md5.c QQmsg_decode.c BlowFish.c /link /out:QQMsg.exe
+          cl.exe QQMsg.cpp tree.c md5.c QQmsg_decode.c BlowFish.c /link /out:QQMsg_${{ matrix.arch }}.exe
           dir
         working-directory: QQMsg
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: QQMsg_${{ matrix.arch }}
-          path: QQMsg/QQMsg.exe
+          path: QQMsg/QQMsg_${{ matrix.arch }}.exe
           
 
   release:
